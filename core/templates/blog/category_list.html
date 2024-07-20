@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+</head>
+<body>
+    <h1>Categories</h1>
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="{% url 'category_detail' category.id %}">{{ category.name }}</a>
+                {% if category.subcategories.exists %}
+                    <ul>
+                        {% for subcategory in category.subcategories.all %}
+                            <li>
+                                <a href="{% url 'category_detail' subcategory.id %}">{{ subcategory.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

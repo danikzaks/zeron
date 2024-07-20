@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <a href="{% url 'category_detail' post.category.id %}">Back to {{ post.category.name }}</a>
+</body>
+</html>
