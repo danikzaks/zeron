@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
 
@@ -25,7 +26,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = RichTextField()
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="posts"
     )

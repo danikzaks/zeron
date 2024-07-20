@@ -4,6 +4,6 @@
 
 {% block content %}
     <h1>{{ post.title }}</h1>
-    <p>{{ post.content }}</p>
+    <p>{{ post.content|safe }}</p>
     <a href="{% url 'category_detail' post.category.id %}" class="btn btn-secondary">Back to {{ post.category.name }}</a>
 {% endblock %}
