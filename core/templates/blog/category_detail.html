@@ -2,6 +2,17 @@
 
 {% block title %}{{ category.name }}{% endblock %}
 
+{% block sidebar %}
+    <h3>{{ category.name }}</h3>
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
 {% block content %}
     <h1>{{ category.name }}</h1>
     <h2>Subcategories</h2>

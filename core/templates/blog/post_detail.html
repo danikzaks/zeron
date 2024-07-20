@@ -2,6 +2,17 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
+{% block sidebar %}
+    <h3>{{ post.category.name }}</h3>
+    <ul class="list-group">
+        {% for related_post in post.category.posts.all %}
+            <li class="list-group-item">
+                <a href="{% url 'post_detail' related_post.id %}">{{ related_post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
 {% block content %}
     <h1>{{ post.title }}</h1>
     <p>{{ post.content|safe }}</p>

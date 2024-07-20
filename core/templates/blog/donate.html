@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Donate{% endblock %}
+
+{% block content %}
+    <h1>Support Us</h1>
+    <p>Your support helps us keep the project going. Thank you!</p>
+    <form action="https://money.yandex.ru/quickpay/pay" method="post" target="_blank">
+        <input type="hidden" name="receiver" value="">
+        <input type="hidden" name="formcomment" value="Donation">
+        <input type="hidden" name="short-dest" value="Donation">
+        <input type="hidden" name="label" value="donation">
+        <!-- URL, куда будет перенаправлен пользователь после успешного платежа -->
+        <input type="hidden" name="successURL" value="http://127.0.0.1:8000/success">
+        <input type="hidden" name="default-sum" value="100">
+        <button type="submit" class="btn btn-success">Donate</button>
+    </form>
+{% endblock %}
