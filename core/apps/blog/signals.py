@@ -15,16 +15,16 @@ def post_save_handler(sender, instance, created, **kwargs):
 
 @receiver(sitemap_update_signal)
 def update_sitemap(sender, **kwargs):
-    os.system('py manage.py refresh_sitemap')
+    os.system("py manage.py refresh_sitemap")
 
 
 @receiver(post_save, sender=Post)
 def send_post_notification(sender, instance, created, **kwargs):
     if created:
         send_mail(
-            'New Post Created',
+            "New Post Created",
             f'A new post titled "{instance.title}" has been created.',
-            'from@example.com',
-            ['to@example.com'],
+            "from@example.com",
+            ["to@example.com"],
             fail_silently=False,
         )

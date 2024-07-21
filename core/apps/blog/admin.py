@@ -9,15 +9,15 @@ class PostAdminForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'content', 'category']
+        fields = ["title", "content", "category"]
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'parent', 'get_full_path')
+    list_display = ("name", "parent", "get_full_path")
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category')
+    list_display = ("title", "category")
     form = PostAdminForm
 
 

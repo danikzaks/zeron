@@ -37,10 +37,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'django.contrib.sitemaps',
-    'ckeditor',
-    'ckeditor_uploader',
-    'django_crontab',
+    "django.contrib.sitemaps",
+    "ckeditor",
+    "ckeditor_uploader",
+    "django_crontab",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
     "apps.blog.apps.BlogConfig",
 ]
 
@@ -52,9 +55,22 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
+]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 ROOT_URLCONF = "core.urls"
+
+LOGIN_REDIRECT_URL = "/"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 
 TEMPLATES = [
     {
@@ -118,19 +134,15 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media/'
-
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # CRON
-CRONJOBS = [
-    ('0 0 * * *', 'apps.blog.cron.update_sitemap_cron')
-]
+CRONJOBS = [("0 0 * * *", "apps.blog.cron.update_sitemap_cron")]

@@ -25,7 +25,6 @@ class Category(models.Model):
         return " > ".join(reversed(categories))
 
 
-
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = RichTextField()
@@ -39,4 +38,4 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('post_detail', args=[str(self.id)])
+        return reverse("post_detail", args=[str(self.id)])
