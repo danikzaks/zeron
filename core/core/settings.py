@@ -37,12 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     'django.contrib.sitemaps',
-
     'ckeditor',
     'ckeditor_uploader',
-
+    'django_crontab',
     "apps.blog.apps.BlogConfig",
 ]
 
@@ -131,3 +129,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# CRON
+CRONJOBS = [
+    ('0 0 * * *', 'apps.blog.cron.update_sitemap_cron')
+]

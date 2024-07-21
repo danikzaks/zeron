@@ -12,6 +12,7 @@ pillow = "^10.4.0"
 black = "^24.4.2"
 django-ckeditor = "^6.7.1"
 gunicorn = "^22.0.0"
+django-crontab = "^0.7.1"
 
 
 [build-system]
