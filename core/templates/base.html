@@ -20,15 +20,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'category_list' %}">All Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'donate' %}">Donate</a> <!-- Добавлена кнопка доната -->
+                </li>
             </ul>
         </div>
     </nav>
     <div class="container mt-5">
         <div class="d-flex justify-content-between mb-3">
-            <a href="/" class="btn btn-primary">Home</a>
-            <a href="{% url 'category_list' %}" class="btn btn-secondary">All Categories</a>
             <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
-            <a href="{% url 'donate' %}" class="btn btn-success">Donate</a> <!-- Добавлена кнопка доната -->
         </div>
         <div class="row">
             <div class="col-md-3">
